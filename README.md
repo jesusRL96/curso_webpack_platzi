@@ -46,3 +46,19 @@ npm install -D babel-loader @babel/core @babel/preset-env @babel/plugin-transfor
 - @babel/preset-env trae y te permite usar las ultimas características de JavaScript
 - @babel/plugin-transform-runtime te permite trabajar con todo el tema de asincronismo como ser async y await
 - Debes crear el archivo de configuración de babel el cual tiene como nombre .babelrc
+
+## HTML en Webpack
+Instalar plugin
+```bash
+npm install html-webpack-plugin -D
+```
+Agregar configuración de plugin
+```js
+plugins: [
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ]
+```
