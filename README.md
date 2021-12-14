@@ -62,3 +62,40 @@ plugins: [
         })
     ]
 ```
+
+## Loaders para CSS y preprocesadores de CSS
+```bash
+npm install mini-css-extract-plugin css-loader -D
+```
+
+Se eliminan las etiquetas style del archivo index.html y se agrega la configuración en webpack.config.js.
+
+*Module*:
+```js
+{
+    test: /\.css$/i,
+    use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader'
+    ],
+}
+```
+*Plugins*:
+```js
+new MiniCssExtractPlugin(),
+```
+Para trabajar con pre procesadores e.g. stylus
+```bash
+npm install stylus stylus-loader -D
+```
+Y agregar la configuración en webpack.config.js
+```js
+{
+    test: /\.css|.styl$/i,
+    use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'stylus-loader'
+    ],
+}
+```
