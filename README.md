@@ -160,3 +160,20 @@ Agregamos la configuración del URL-Loader.
     },
 }
 ```
+## Optimización: hashes, compresión y minificación de archivos
+Instalar unas dependencias
+```bash
+npm install css-minimizer-webpack-plugin terser-webpack-plugin -D
+```
+Agregar las opciones de optimización y hashes a archivos.
+```js
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+optimization: {
+        minimize:true,
+        minimizer: [
+            new CssMinimizerPlugin(),
+            new TerserPlugin()
+        ]
+    }
+```
