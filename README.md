@@ -120,3 +120,11 @@ new CopyPlugin({
 ```html
 <img src="assets/images/github.png" />
 ```
+## Loaders de imágenes
+No es necesario instalar ninguna dependencia, webpack ya lo tiene incluido debemos agregar la siguiente configuración en module para los recursos.
+```js
+{
+    test: /\.png$/i,
+    type: 'asset/resource'
+}
+```
