@@ -128,3 +128,35 @@ No es necesario instalar ninguna dependencia, webpack ya lo tiene incluido debem
     type: 'asset/resource'
 }
 ```
+## Loaders de fuentes
+Instalación
+```bash
+npm install url-loader file-loader -D
+```
+Agregar a css la fuente descargada y eliminar la importada
+```css
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('../assets/fonts/ubuntu-regular.woff2') format('woff2'), url('../assets/fonts/ubuntu-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+```
+En module.exports especificamos la ruta donde se deben guardar los archivos de imagen.
+```js
+output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
+    assetModuleFilename: 'assets/images/[hash][ext][query]'
+},
+```
+Agregamos la configuración del URL-Loader.
+```js
+{
+    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+    type: "asset/resource",
+    generator: {
+        filename: "assets/fonts/[hash][ext]",
+    },
+}
+```
