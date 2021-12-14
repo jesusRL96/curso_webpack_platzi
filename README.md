@@ -99,3 +99,24 @@ Y agregar la configuración en webpack.config.js
     ],
 }
 ```
+
+## Copia de archivos con Webpacks
+```bash
+npm i copy-webpack-plugin -D
+```
+Agregar configuración en webpack.config.js y cambiar el path de las imagenes a la asignada en la configuración
+```js
+const CopyPlugin = require('copy-webpack-plugin');
+// plugins
+new CopyPlugin({
+        patterns:[
+            {
+                from: path.resolve(__dirname, "src", "assets/images"),
+                to: "assets/images"
+            }
+        ]
+    }),
+```
+```html
+<img src="assets/images/github.png" />
+```
