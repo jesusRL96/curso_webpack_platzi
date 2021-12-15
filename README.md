@@ -177,3 +177,18 @@ optimization: {
         ]
     }
 ```
+
+## Variables de entorno
+Instalar dotenv para webpack y crear archivo .env
+```bash
+npm install -D dotenv-webpack
+```
+Agregar configuración en webpack.config.js (plugins)
+```js
+const Dotenv = require("dotenv-webpack");
+new Dotenv(),
+```
+Reemplazar codigo por variables de entorno:
+```js
+const API = process.env.API;
+```
