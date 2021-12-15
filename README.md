@@ -211,3 +211,11 @@ O con script que agregue esa opción en el comando en package.json
 ```js
 "build:watch": "webpack --watch --config webpack.config.js"
 ```
+## Deploy a Netlify
+Crear archivo netlify.toml con la siguiente configuración
+```
+[build]
+    publish = "dist"
+    command = "npm run build"
+
+```
