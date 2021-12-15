@@ -192,3 +192,13 @@ Reemplazar codigo por variables de entorno:
 ```js
 const API = process.env.API;
 ```
+## Webpack cleaner
+Instalar plugin webpack cleaner
+```bash
+npm install -D clean-webpack-plugin
+```
+Agregarlo a plugins en webpack.config.js
+```js
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+new CleanWebpackPlugin(),
+```
