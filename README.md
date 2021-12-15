@@ -202,3 +202,12 @@ Agregarlo a plugins en webpack.config.js
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 new CleanWebpackPlugin(),
 ```
+## Webpack watch
+para utilizar el podo watch, se puede hacer de dos formas, agregando directamente en el archivowebpack.config.js
+```js
+watch: true,
+```
+O con script que agregue esa opción en el comando en package.json
+```js
+"build:watch": "webpack --watch --config webpack.config.js"
+```
