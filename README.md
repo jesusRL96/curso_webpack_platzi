@@ -219,3 +219,22 @@ Crear archivo netlify.toml con la siguiente configuración
     command = "npm run build"
 
 ```
+## Webpack Dev Server
+Instalar webpack dev server con
+```bash
+npm install webpack-dev-server -D
+```
+Agregar la configuración a el archivo de webpack.config.dev.js
+```js
+devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 3006,
+},
+```
+Y el comando para correr webpack serve en package.json
+```js
+"start": "webpack serve --config webpack.config.dev.js"
+```
+No es necesario tener el modo watch activo
