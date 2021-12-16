@@ -238,3 +238,25 @@ Y el comando para correr webpack serve en package.json
 "start": "webpack serve --config webpack.config.dev.js"
 ```
 No es necesario tener el modo watch activo
+
+## Webpack Bundle Analyzer
+Instalar bundle analyzer
+```bash
+npm install -D webpack-bundle-analyzer
+```
+Crear configuración en webpack.config.dev.js en plugins
+```js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+new BundleAnalyzerPlugin()
+```
+
+Para generar el repote
+```bash
+npx webpack --profile --json > stats.json # linux
+npx webpack --profile --json | Out-file 'stats.json' -Encoding OEM # windows
+```
+Para mostrar reporte
+```bash
+npx webpack-bundle-analyzer .\stats.json
+```
