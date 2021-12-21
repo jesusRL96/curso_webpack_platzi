@@ -260,3 +260,11 @@ Para mostrar reporte
 ```bash
 npx webpack-bundle-analyzer .\stats.json
 ```
+# Webpack react
+## Instalación y configuración de React
+```bash
+# Inicializar npm
+npm init -y
+# instalar dependencias
+npm install react react-dom
+```
