@@ -268,3 +268,69 @@ npm init -y
 # instalar dependencias
 npm install react react-dom
 ```
+## Configuración de Webpack 5 para React.js
+Instalar dependencias de babel
+```bash
+npm install -D @babel/core @babel/preset-env @babel/preset-react babel-loader
+```
+Instalar dependencias de webpack
+```bash
+npm install -D webpack webpack-cli webpack-dev-server
+```
+### Configuración de plugins y loaders para React
+```bash
+npm install -D html-loader html-webpack-plugin
+```
+Instalar dependencias de CSS y SASS
+```bash
+npm install -D mini-css-extract-plugin css-loader style-loader sass sass-loader
+```
+Crear archivo de configuración de webpack.config.js
+```js
+const path = require('path');
+const htmlWebPackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    module: {
+        rules:[
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    { loader: 'html-loader' }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new htmlWebPackPlugin({
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ],
+    devServer: {
+        static: path.join(__dirname, 'dist'),
+        compress: true,
+        port:3006
+    }
+}
+```
+Agregar comandos en package.json
+```js
+"start": "webpack serve --mode development",
+"build": "webpack --mode production"
+```
